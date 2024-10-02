@@ -22,6 +22,7 @@ ENV XAUTHORITY=/root/.Xauthority
 EXPOSE 8080
 
 ADD run.sh /run.sh
+RUN chmod a+x /run.sh
 
 # Set up a default command
 ENTRYPOINT [ "./run.sh" ]
