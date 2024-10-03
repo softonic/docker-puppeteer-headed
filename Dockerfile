@@ -5,8 +5,6 @@ ENV NODE_ENV production
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD true
 ENV PUPPETEER_EXECUTABLE_PATH=/ms-playwright/chromium-1124/chrome-linux/chrome
 
-WORKDIR /usr/app
-
 # Install puppeteer so it's available in the container.
 RUN npm i puppeteer-core -g
 
@@ -20,9 +18,6 @@ ENV XAUTHORITY=/root/.Xauthority
 
 # Expose the port
 EXPOSE 8080
-
-ADD run.sh /run.sh
-RUN chmod a+x /run.sh
 
 # Set up a default command
 CMD [ "chrome" ]
