@@ -6,7 +6,6 @@ ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD true
 ENV PUPPETEER_EXECUTABLE_PATH=/ms-playwright/chromium-1124/chrome-linux/chrome
 
 WORKDIR /usr/app
-COPY ./ /usr/app
 
 # Install puppeteer so it's available in the container.
 RUN npm i puppeteer-core
