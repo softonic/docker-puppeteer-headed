@@ -1,12 +1,12 @@
 FROM mcr.microsoft.com/playwright:v1.45.1-jammy
 
-ENV NODE_ENV production
-
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD true
 ENV PUPPETEER_EXECUTABLE_PATH=/ms-playwright/chromium-1124/chrome-linux/chrome
 
+WORKDIR /usr/app
+
 # Install puppeteer so it's available in the container.
-RUN npm i puppeteer-core -g
+RUN npm i puppeteer-core
 
 ENV PUPPETEER_SKIP_DOWNLOAD true
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD true
@@ -19,5 +19,8 @@ ENV XAUTHORITY=/root/.Xauthority
 # Expose the port
 EXPOSE 8080
 
+ADD run.sh /usr/app/run.sh
+RUN chmod a+x /usr/app/run.sh
+
 # Set up a default command
-CMD [ "chrome" ]
+ENTRYPOINT [ "./run.sh" ]
