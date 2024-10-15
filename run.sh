@@ -9,6 +9,8 @@ sleep 2
 # Export some variables
 export DISPLAY=:0
 export DBUS_SESSION_BUS_ADDRESS=autolaunch:
+export $(dbus-launch)
+export NSS_USE_SHARED_DB=ENABLED
 
 # start dbus service manually
 service dbus start
