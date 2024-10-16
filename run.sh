@@ -13,7 +13,7 @@ export $(dbus-launch)
 export NSS_USE_SHARED_DB=ENABLED
 
 # start dbus service manually
-sudo service dbus start
+service dbus start
 
 # symlink to create expected machine-id folder
 rm -f /etc/machine-id

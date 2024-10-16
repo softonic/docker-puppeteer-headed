@@ -8,6 +8,7 @@ WORKDIR /usr/app
 # Install necessary packages
 RUN apt-get update && apt-get install -y \
     dbus-x11 \
+    upower \
     xvfb \
     ffmpeg \
     xauth
