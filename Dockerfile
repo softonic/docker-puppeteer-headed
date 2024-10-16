@@ -5,6 +5,13 @@ ENV PUPPETEER_EXECUTABLE_PATH=/ms-playwright/chromium-1124/chrome-linux/chrome
 
 WORKDIR /usr/app
 
+# Install necessary packages
+RUN apt-get update && apt-get install -y \
+    dbus-x11 \
+    xvfb \
+    ffmpeg \
+    xauth
+
 # Install puppeteer so it's available in the container.
 RUN npm i puppeteer-core
 
