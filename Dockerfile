@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/playwright:v1.45.1-noble
+FROM mcr.microsoft.com/playwright:v1.49.0-jammy
 
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD true
 ENV PUPPETEER_EXECUTABLE_PATH=/ms-playwright/chromium-1124/chrome-linux/chrome
