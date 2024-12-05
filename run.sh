@@ -13,6 +13,7 @@ export $(dbus-launch)
 export NSS_USE_SHARED_DB=ENABLED
 
 # start dbus service manually
+mkdir -p /var/run/dbus && dbus-daemon --config-file=/usr/share/dbus-1/system.conf --print-address
 service dbus start
 
 # symlink to create expected machine-id folder
