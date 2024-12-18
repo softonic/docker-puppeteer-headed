@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y \
     xvfb \
     ffmpeg \
     xauth \
-    axios
+    node-axios
 
 # Install puppeteer so it's available in the container.
 RUN npm i puppeteer-core
