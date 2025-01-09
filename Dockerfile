@@ -11,8 +11,10 @@ RUN apt-get update && apt-get install -y \
     upower \
     xvfb \
     ffmpeg \
-    xauth \
-    node-axios
+    xauth
+
+# Install axios for Slack notifications.
+RUN npm i axios
 
 # Install puppeteer so it's available in the container.
 RUN npm i puppeteer-core
