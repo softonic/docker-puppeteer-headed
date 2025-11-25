@@ -16,22 +16,23 @@ RUN apt-get update && apt-get install -y \
     ca-certificates \
     build-essential \
     python3
+ARG ABP_VERSION=4.31.1
 
-# Download and prepare Adblock Plus 4.31.1
+# Download and prepare Adblock Plus
 RUN mkdir -p /usr/app/extensions/abp && \
-    curl -L "https://gitlab.com/eyeo/browser-extensions-and-premium/extensions/extensions/-/archive/adblockplus-4.31.1/extensions-adblockplus-4.31.1.tar.gz" \
+    curl -L "https://gitlab.com/eyeo/browser-extensions-and-premium/extensions/extensions/-/archive/adblockplus-${ABP_VERSION}/extensions-adblockplus-${ABP_VERSION}.tar.gz" \
       -o /tmp/abp.tar.gz && \
     tar -xzf /tmp/abp.tar.gz -C /tmp && \
-    cd /tmp/extensions-adblockplus-4.31.1 && \
+    cd /tmp/extensions-adblockplus-${ABP_VERSION} && \
     npm install && \
     npm run build && \
     cd host/adblockplus && \
     npm run build -- chrome 3 && \
     cp -r dist/devenv/chrome-mv3/* /usr/app/extensions/abp && \
-    rm -rf /tmp/abp.tar.gz /tmp/extensions-adblockplus-4.31.1
+    rm -rf /tmp/abp.tar.gz /tmp/extensions-adblockplus-${ABP_VERSION}
 
-# Install axios for Slack notifications.
-RUN npm i axios
+# Install axios and form-data for Slack notifications.
+RUN npm i axios form-data
 
 # Install puppeteer so it's available in the container.
 RUN npm i puppeteer-core
